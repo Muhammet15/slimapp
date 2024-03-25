@@ -8,5 +8,5 @@ use App\Domain\DomainException\DomainRecordNotFoundException;
 
 class CommentNotFoundException extends DomainRecordNotFoundException
 {
-    public $message = 'The Comment you requested does not exist.';
+    public $message = 'The postId you requested does not exist.';
 }

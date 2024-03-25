@@ -6,16 +6,15 @@ namespace App\Application\Actions\Comment;
 
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ListCommentsAction extends CommentAction
+class ViewCommentAction extends CommentAction
 {
-
     /**
      * {@inheritdoc}
      */
     protected function action(): Response
     {
-        $comments = $this->commentRepository->findAll();
-        return $this->respondWithData($comments);
+        $postId = (int) $this->resolveArg('post_id');
+        $comment = $this->commentRepository->findCommentsOfId($postId);
+        return $this->respondWithData($comment);
     }
-
 }

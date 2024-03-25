@@ -22,5 +22,6 @@ return function (App $app) {
     $app->group('/api', function (RouteCollectorProxy $group) {
         $group->get('/posts', \App\Application\Actions\Post\ListPostsAction::class);
         $group->get('/comments', \App\Application\Actions\Comment\ListCommentsAction::class);
+        $group->get('/posts/{post_id}/comments', \App\Application\Actions\Comment\ViewCommentAction::class);
     });
 };

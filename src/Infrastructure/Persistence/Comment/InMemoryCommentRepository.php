@@ -48,5 +48,29 @@ class InMemoryCommentRepository implements CommentRepository
 
         return $comments;
     }
-
+    public function findCommentsOfId(int $id): array
+    {
+        $mysqli = $this->connectToDatabase();
+        $query = "SELECT * FROM comments WHERE postId = '$id'";
+        $statement = $mysqli->query($query);
+        
+        if (!$statement) {
+            die("Sorgu hatası: " . $mysqli->error);
+        }
+    
+        $comments = [];
+        while ($commentData = $statement->fetch_assoc()) {
+            $comment = new Comment(
+                (int)$commentData['id'],
+                (int)$commentData['postId'],
+                $commentData['name'],
+                $commentData['email'],
+                $commentData['body']
+            );
+            $comments[] = $comment;
+        }
+    
+        return $comments;
+    }
+    
 }

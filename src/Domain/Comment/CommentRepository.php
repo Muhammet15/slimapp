@@ -11,6 +11,11 @@ interface CommentRepository
      */
     public function findAll(): array;
 
-
+    /**
+     * @param int $id
+     * @return Comment[]
+     * @throws CommentNotFoundException
+     */
+    public function findCommentsOfId(int $id): array;
 
 }
