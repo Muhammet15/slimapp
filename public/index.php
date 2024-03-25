@@ -21,6 +21,9 @@ if (false) { // Should be set to true in production
 
 // Set up settings
 $settings = require __DIR__ . '/../app/settings.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
 $settings($containerBuilder);
 
 // Set up dependencies

@@ -1,3 +1,4 @@
+.env
 .idea/
 .vscode/
 /coverage/
@@ -5,3 +6,6 @@
 /logs/*
 !/logs/README.md
 .phpunit.result.cache
+/logs/*
+!/logs/README.md
+
