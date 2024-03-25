@@ -14,10 +14,10 @@ class InMemoryPostRepository implements PostRepository
 
     private function connectToDatabase(): mysqli
     {
-        $dbHost = getenv('DB_HOST');
-        $dbUser = getenv('DB_USER');
-        $dbPass = getenv('DB_PASSWORD');
-        $dbName = getenv('DB_NAME');
+        $dbHost = "127.0.0.1"; 
+        $dbUser = "root"; 
+        $dbPass = ""; 
+        $dbName = "slimapi"; 
         
         $mysqli = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
     
