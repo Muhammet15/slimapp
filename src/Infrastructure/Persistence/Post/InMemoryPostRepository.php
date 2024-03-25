@@ -21,7 +21,6 @@ class InMemoryPostRepository implements PostRepository
         
         $mysqli = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
     
-        // Bağlantı hata kontrolü
         if ($mysqli->connect_errno) {
             die("Veritabanı bağlantı hatası (" . $mysqli->connect_errno . "): " . $mysqli->connect_error);
         }
