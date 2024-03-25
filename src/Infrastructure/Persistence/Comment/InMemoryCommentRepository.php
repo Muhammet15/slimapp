@@ -14,10 +14,10 @@ class InMemoryCommentRepository implements CommentRepository
 
     private function connectToDatabase(): mysqli
     {
-        $dbHost = "127.0.0.1"; 
-        $dbUser = "root"; 
-        $dbPass = ""; 
-        $dbName = "slimapi"; 
+        $dbHost = getenv('DB_HOST');
+        $dbUser = getenv('DB_USER');
+        $dbPass = getenv('DB_PASSWORD');
+        $dbName = getenv('DB_NAME');
         
         $mysqli = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
     
